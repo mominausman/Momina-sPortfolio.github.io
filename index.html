@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momina Usman - Data Analyst | Updated: 04:15 PM PKT, Oct 13, 2025</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #0B1210;
+            color: #D6D6D6;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11, 18, 16, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: background 0.3s ease;
+        }
+
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        nav .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav .nav-links a {
+            color: #D6D6D6;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+            padding-bottom: 0.2rem;
+        }
+
+        nav .nav-links a:hover {
+            color: #00C896;
+        }
+
+        nav .nav-links a.active {
+            color: #00C896;
+        }
+
+        nav .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #00C896;
+        }
+
+        /* Header */
+        header {
+            padding-top: 8rem;
+            background: linear-gradient(135deg, #0B1210, #00C896);
+            color: #D6D6D6;
+            text-align: center;
+            padding-bottom: 6rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 200, 150, 0.3);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 200, 150, 0.2) 0%, transparent 70%);
+            opacity: 0.3;
+        }
+
+        header p.greeting {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px rgba(0, 200, 150, 0.5);
+        }
+
+        header h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        header p.description {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+        }
+
+        header a {
+            display: inline-block;
+            background: #00C896;
+            color: #0B1210;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 15px rgba(0, 200, 150, 0.4);
+        }
+
+        header a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(242, 163, 101, 0.6);
+            background: #F2A365;
+            color: #0B1210;
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #1a2523;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #00C896;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #F2A365;
+            margin: 0.5rem auto 0;
+            box-shadow: 0 0 10px rgba(242, 163, 101, 0.4);
+        }
+
+        /* SKILLS SECTION */
+        #about p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill {
+            background: #0B1210;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            box-shadow: 0 0 15px rgba(0, 200, 150, 0.2);
+            font-weight: 700;
+            color: #00C896;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill i {
+            font-size: 1rem;
+            color: #F2A365;
+        }
+
+        .skill:hover {
+            transform: scale(1.05);
+            background: #F2A365;
+            color: #0B1210;
+            box-shadow: 0 0 20px rgba(242, 163, 101, 0.5);
+        }
+
+        .skill:hover i {
+            color: #0B1210;
+        }
+
+        .skill-category {
+            margin: 2rem 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .skill-category h3 {
+            font-size: 1.8rem;
+            color: #00C896;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* FULL-WIDTH PROJECT SECTIONS */
+        .full-project {
+            background: #0B1210;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            max-width: 100%;
+        }
+
+        .full-project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px rgba(242, 163, 101, 0.4);
+        }
+
+        .full-project h3 {
+            font-size: 2.2rem;
+            color: #00C896;
+            margin-bottom: 1rem;
+        }
+
+        .full-project img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 20px rgba(0, 200, 150, 0.3);
+        }
+
+        .full-project p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .full-project .project-links {
+            margin-bottom: 2rem;
+        }
+
+        .full-project .project-links a {
+            color: #00C896;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.1rem;
+        }
+
+        .full-project .project-links a:hover {
+            color: #F2A365;
+            text-shadow: 0 0 10px rgba(242, 163, 101, 0.5);
+        }
+
+        .full-project .tech {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .full-project .tech span {
+            background: #1a2523;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            color: #F2A365;
+            box-shadow: 0 0 10px rgba(242, 163, 101, 0.2);
+        }
+
+        /* CONTACT SECTION */
+        #contact p {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        #contact a {
+            color: #00C896;
+            text-decoration: none;
+        }
+
+        #contact a:hover {
+            color: #F2A365;
+            text-shadow: 0 0 10px rgba(242, 163, 101, 0.5);
+        }
+
+        .resume-content, .certification-content {
+            background: #0B1210;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 200, 150, 0.2);
+            margin-bottom: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .resume-content:hover, .certification-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px rgba(242, 163, 101, 0.4);
+        }
+
+        .resume-grid, .certification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        footer {
+            background: #1a2523;
+            color: #D6D6D6;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            box-shadow: 0 0 15px rgba(0, 200, 150, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            nav .nav-links { display: none; }
+            header h1 { font-size: 2.5rem; }
+            header h2 { font-size: 1.5rem; }
+            header p.greeting { font-size: 1.2rem; }
+            section { padding: 3rem 1rem; }
+            .full-project { padding: 2rem 1rem; }
+            .full-project h3 { font-size: 1.8rem; }
+            .skill i { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar (Reordered) -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home">
+        <p class="greeting">👋 Hi, my name is</p>
+        <h1>Momina Usman</h1>
+        <h2>Data Analyst</h2>
+        <p class="description">I help transform complex, messy data into clear and actionable insights by creating interactive dashboards, visualizations, and reports that drive smarter decisions, business growth, and real-world impact.</p>
+        <a href="#about">Learn More</a>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I create intelligence from data. A passionate Business Analyst with a unique blend of technical expertise and strategic thinking. With a Bachelor's in Artificial Intelligence and a background in engineering, I excel at turning data into actionable insights. I thrive on exploring the latest in machine learning and market trends to drive business growth. Known for my proactive problem-solving and excellent communication skills, I consistently deliver high-quality results. I use machine learning techniques to analyze patterns in data and generate actionable business insights. Organizations rely on my ability to convert raw data into decisions that move the needle.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        
+        <!-- Programming & Machine Learning -->
+        <div class="skill-category">
+            <h3>Programming & Machine Learning</h3>
+            <div class="skills-grid">
+                <div class="skill"><i class="fab fa-python"></i> Python</div>
+                <div class="skill"><i class="fas fa-database"></i> SQL</div>
+                <div class="skill"><i class="fas fa-table"></i> Pandas</div>
+                <div class="skill"><i class="fas fa-table"></i> NumPy</div>
+                <div class="skill"><i class="fas fa-brain"></i> Scikit-learn</div>
+                <div class="skill"><i class="fas fa-network-wired"></i> TensorFlow</div>
+                <div class="skill"><i class="fas fa-fire"></i> PyTorch</div>
+            </div>
+        </div>
+
+        <!-- Visualization & Analytics -->
+        <div class="skill-category">
+            <h3>Visualization & Analytics</h3>
+            <div class="skills-grid">
+                <div class="skill"><i class="fas fa-chart-bar"></i> Power BI</div>
+                <div class="skill"><i class="fas fa-chart-area"></i> Matplotlib</div>
+                <div class="skill"><i class="fas fa-chart-pie"></i> Seaborn</div>
+                <div class="skill"><i class="fas fa-chart-line"></i> Plotly</div>
+                <div class="skill"><i class="fas fa-file-excel"></i> Advanced Excel</div>
+            </div>
+        </div>
+
+        <!-- Deployment & Tools -->
+        <div class="skill-category">
+            <h3>Deployment & Tools</h3>
+            <div class="skills-grid">
+                <div class="skill"><i class="fab fa-git-alt"></i> Git & GitHub</div>
+                <div class="skill"><i class="fas fa-stream"></i> Streamlit</div>
+                <div class="skill"><i class="fas fa-flask"></i> Flask</div>
+                <div class="skill"><i class="fas fa-cloud-upload-alt"></i> Power BI Service</div>
+                <div class="skill"><i class="fas fa-robot"></i> Power Automate</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="resume-grid">
+            <div class="resume-content">
+                <div class="resume-item">
+                    <h3>Bachelor of Science, Artificial Intelligence</h3>
+                    <p>The University of Faisalabad</p>
+                    <p>Graduated: 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="certification-grid">
+            <div class="certification-content">
+                <div class="certification-item">
+                    <h3>Data Analytics Certification</h3>
+                    <p>Leverify | Issued: December 2023</p>
+                    <p>Skills: SQL, Power BI, Excel, Data Visualization, Statistical Analysis</p>
+                </div>
+            </div>
+            <div class="certification-content">
+                <div class="certification-item">
+                    <h3>Google UX Design Specialization</h3>
+                    <p>Coursera | Google | Issued: February 2025</p>
+                    <p>Skills: Figma, Wireframing, Prototyping, Usability Testing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        
+        <div class="full-project">
+            <h3>🔴 Live Crypto Market Dashboard</h3>
+            <img src="https://raw.githubusercontent.com/mominausman/live-crypto-market-dashboard/main/Live%20Crypto%20Market%20Dashboard-1.png" alt="Live Crypto Market Dashboard">
+            <p><strong>Tech Stack:</strong> Python, Power BI, CoinGecko API</p>
+            <p>An interactive Power BI dashboard that visualizes <strong>real-time cryptocurrency data</strong> — including price changes, trading volume, and market cap analytics. Features live data refresh, interactive filters, and comprehensive market insights.</p>
+            <div class="project-links">
+                <a href="https://app.powerbi.com/groups/me/reports/04980b0a-0823-4f3d-b4ea-d2a6978fb9f8/414ff7b8a5840400cd1e?experience=power-bi" target="_blank">👉 View Live Dashboard</a>
+                <a href="https://github.com/mominausman/live-crypto-market-dashboard" target="_blank">📂 View Source Code</a>
+            </div>
+            <div class="tech">
+                <span>🐍 Python</span>
+                <span>📊 Power BI</span>
+                <span>🔗 CoinGecko API</span>
+            </div>
+        </div>
+
+        <div class="full-project">
+            <h3>🦠 Global COVID-19 Data Analysis Dashboard (2020–2024)</h3>
+            <img src="https://raw.githubusercontent.com/mominausman/Global-COVID-19-Data-Analysis-Dashboard-2020-2024-/main/COVID19_Dashboard.png" alt="Global COVID-19 Data Analysis Dashboard">
+            <p><strong>Tech Stack:</strong> Python, Power BI, Our World in Data</p>
+            <p>A comprehensive Power BI dashboard analyzing <strong>global COVID-19 trends from 2020 to 2024</strong>. Features interactive visualizations of infections, deaths, vaccinations, and country-wise comparisons with advanced filtering capabilities.</p>
+            <div class="project-links">
+                <a href="https://github.com/mominausman/Global-COVID-19-Data-Analysis-Dashboard-2020-2024-" target="_blank">📂 View Source Code</a>
+            </div>
+            <div class="tech">
+                <span>🐍 Python</span>
+                <span>📊 Power BI</span>
+                <span>🌍 Our World in Data</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p>Connect with me for collaborations or inquiries. I'm always open to discussing new opportunities in AI and software development!</p>
+        <p>Email: <a href="mailto:mominau94@gmail.com">mominau94@gmail.com</a></p>
+        <p>Phone: <a href="tel:+923040799768">+92 3040799768</a></p>
+        <p>GitHub: <a href="https://github.com/mominausman">github.com/mominausman</a></p>
+        <p>LinkedIn: <a href="https://pk.linkedin.com/in/momina-usman-699569221">linkedin.com/in/momina-usman-699569221</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Momina Usman. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+
+        const navLinks = document.querySelectorAll('nav .nav-links a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
